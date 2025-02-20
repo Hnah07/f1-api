@@ -10,6 +10,7 @@ The API provides endpoints for retrieving information about Formula 1:
 
 ### **GET /races**
 
+- **URL:** `https://f1-api-c8s0.onrender.com/api/races`
 - Get a list of all races.
 - Includes race details along with driver information (via `driver_id`).
 - Converts country codes for flags using this URL format:  
@@ -20,17 +21,20 @@ The API provides endpoints for retrieving information about Formula 1:
 
 ### **GET /teams**
 
+- **URL:** `https://f1-api-c8s0.onrender.com/api/teams`
 - Get all teams with details about the drivers (via `driver_id`).
 - Includes team flags using the same URL format for country codes.
 
 ### **GET /drivers**
 
+- **URL:** `https://f1-api-c8s0.onrender.com/api/drivers`
 - Get all drivers.
 - Supports a search query parameter: `?search=Name` (case-insensitive).
 - Includes driver flags based on country codes.
 
 ### **GET /circuits**
 
+- **URL:** `https://f1-api-c8s0.onrender.com/api/circuits`
 - Get all circuits.
 - Supports searching by circuit name using `?search=Name`.
 
@@ -49,7 +53,7 @@ I’ve structured this project with a clear MVC (Model-View-Controller) pattern 
 ## Links
 
 - **GitHub Repository:** [https://github.com/Hnah07/f1-api](https://github.com/Hnah07/f1-api)
-- **Live API:** [https://your-project-name.onrender.com](https://your-project-name.onrender.com)
+- **Live API:** [https://f1-api-c8s0.onrender.com](https://f1-api-c8s0.onrender.com)
 
 ---
 
