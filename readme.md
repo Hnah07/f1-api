@@ -1,71 +1,60 @@
-# Node, Express and TypeScript Project Template
+# Formula 1 RESTful API
 
-Welcome to the **Node, Express and TypeScript Project Template**! This repository serves as a starter template for building Node.js applications with TypeScript. It comes pre-configured with models, controllers, routes, and bundling, so you can focus on building your application.
-
-## Features
-
-- **TypeScript**: Strongly typed language for writing robust and maintainable code.
-- **Project Structure**: Organized folder structure with models, controllers, and routes.
-- **Bundling pkgroll**: Pre-configured with a bundler for efficient builds.
-- **TSX**: For automatic server restarts an running typescript during development.
-- **Dependency Management**: Configured with npm.
-
-## Project Structure
-
-```
-├── src
-│   ├── controllers
-│   │   └── exampleController.ts
-│   ├── middleware
-│   │   └── exampleMiddleware.ts
-│   ├── models
-│   │   └── exampleModel.ts
-│   ├── routes
-│   │   └── exampleRoutes.ts
-│   └── server.ts    // Main entry point of the application
-├── dist             // Compiled output (auto-generated)
-├── package.json     // Project dependencies and scripts
-├──.gitignore        // Ignore files to github
-├── tsconfig.json    // TypeScript configuration
-└── README.md        // Project documentation
-```
-
-## Getting Started
-
-### 1. Start Development Server
-
-Run the development server with hot-reloading:
-
-```bash
-npm run dev
-```
-
-### 2. Build the Project
-
-Compile TypeScript files to JavaScript:
-
-```bash
-npm run build
-```
-
-### 3. Start the Production Server
-
-After building the project, start the server:
-
-```bash
-npm start
-```
-
-## Scripts
-
-- `dev`: Starts the development server with hot-reloading.
-- `build`: Compiles the TypeScript source code to JavaScript.
-- `start`: Starts the production server.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
+This project is a **RESTful API** built using **Node.js**, **Express**, **TypeScript**, and **Mongoose** to manage and expose data related to the **Formula 1 2024 season**. It handles information about **races**, **teams**, **drivers**, and **circuits**.
 
 ---
 
-Happy coding! 🎉
+## Features
+
+The API provides endpoints for retrieving information about Formula 1:
+
+### **GET /races**
+
+- Get a list of all races.
+- Includes race details along with driver information (via `driver_id`).
+- Converts country codes for flags using this URL format:  
+  `https://purecatamphetamine.github.io/country-flag-icons/3x2/COUNTRYCODE.svg`
+- Supports a query parameter `?format=true` that formats times into more human-readable values:
+  - Position 1 time is converted to `hours:minutes:seconds.milliseconds`.
+  - Position 2 and 3 times are converted to seconds (3 decimal places).
+
+### **GET /teams**
+
+- Get all teams with details about the drivers (via `driver_id`).
+- Includes team flags using the same URL format for country codes.
+
+### **GET /drivers**
+
+- Get all drivers.
+- Supports a search query parameter: `?search=Name` (case-insensitive).
+- Includes driver flags based on country codes.
+
+### **GET /circuits**
+
+- Get all circuits.
+- Supports searching by circuit name using `?search=Name`.
+
+---
+
+## API Structure
+
+I’ve structured this project with a clear MVC (Model-View-Controller) pattern to make it clean and scalable:
+
+- **Models** define the schema for the database (using Mongoose).
+- **Controllers** handle the logic for each endpoint, processing data and handling responses.
+- **Routes** define the API endpoints and connect them to the relevant controller functions.
+
+---
+
+## Links
+
+- **GitHub Repository:** [https://github.com/Hnah07/f1-api](https://github.com/Hnah07/f1-api)
+- **Live API:** [https://your-project-name.onrender.com](https://your-project-name.onrender.com)
+
+---
+
+## About the Project
+
+This project was created as an exercise to practice building a RESTful API using modern web technologies. It provides a hands-on opportunity to work with APIs, databases, and server-side logic in **Node.js**. Feel free to explore the code, contribute, or try it out for yourself.
+
+---
